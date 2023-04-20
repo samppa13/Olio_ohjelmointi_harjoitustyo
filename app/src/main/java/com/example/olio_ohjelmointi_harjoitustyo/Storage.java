@@ -8,6 +8,10 @@ public class Storage {
 
     protected Storage() {}
 
+    public ArrayList<Lutemon> getLutemons() {
+        return lutemons;
+    }
+
     public static Storage getInstance() {
         if (storage == null) {
             storage = new Storage();
