@@ -11,7 +11,7 @@ import android.widget.RadioGroup;
 
 public class AddLutemonActivity extends AppCompatActivity {
 
-    private Storage storage = Storage.getInstance();
+    private Home home = Home.getInstance();
     private RadioGroup lutemonTypeRadioGroup;
     private EditText nameEditText;
     private Button addLutemonButton;
@@ -34,23 +34,23 @@ public class AddLutemonActivity extends AppCompatActivity {
                 switch (lutemonTypeRadioGroup.getCheckedRadioButtonId()) {
                     case R.id.whiteRadioButton:
                         Lutemon white = new White(name);
-                        storage.addLutemon(white);
+                        home.createLutemon(white);
                         break;
                     case R.id.greenRadioButton:
                         Lutemon green = new Green(name);
-                        storage.addLutemon(green);
+                        home.createLutemon(green);
                         break;
                     case R.id.pinkRadioButton:
                         Lutemon pink = new Pink(name);
-                        storage.addLutemon(pink);
+                        home.createLutemon(pink);
                         break;
                     case R.id.orangeRadioButton:
                         Lutemon orange = new Orange(name);
-                        storage.addLutemon(orange);
+                        home.createLutemon(orange);
                         break;
                     case R.id.blackRadioButton:
                         Lutemon black = new Black(name);
-                        storage.addLutemon(black);
+                        home.createLutemon(black);
                         break;
                 }
                 Intent showMainActivity = new Intent(getApplicationContext(), MainActivity.class);

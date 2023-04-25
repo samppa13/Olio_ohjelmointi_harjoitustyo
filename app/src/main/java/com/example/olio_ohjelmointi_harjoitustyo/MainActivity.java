@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button addLutemonActivityButton;
     private Button listLutemonsActivityButton;
+    private Button moveLutemonsActivityButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +19,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         addLutemonActivityButton = findViewById(R.id.addLutemonActivityButton);
         listLutemonsActivityButton = findViewById(R.id.listLutemonsActivityButton);
+        moveLutemonsActivityButton = findViewById(R.id.moveLutemonsActivityButton);
         switchToAddLutemon();
         switchToListLutemons();
+        switchToMoveLutemons();
     }
 
     public void switchToAddLutemon() {
@@ -38,6 +41,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent showListLutemonsActivity = new Intent(getApplicationContext(), ListLutemonsActivity.class);
                 startActivity(showListLutemonsActivity);
+            }
+        });
+    }
+
+    public void switchToMoveLutemons() {
+        moveLutemonsActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent showMoveLutemosActivity = new Intent(getApplicationContext(), MoveLutemonsActivity.class);
+                startActivity(showMoveLutemosActivity);
             }
         });
     }

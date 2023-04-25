@@ -10,7 +10,7 @@ public class Lutemon {
     protected int maxHealth;
     protected int id;
     protected int image;
-    private static int idCounter;
+    private static int idCounter = 0;
 
     public Lutemon(String name, String color, int attack, int defense, int experience, int health, int maxHealth, int id, int image) {
         this.name = name;
@@ -22,6 +22,7 @@ public class Lutemon {
         this.maxHealth = maxHealth;
         this.id = id;
         this.image = image;
+        idCounter++;
     }
 
     public String getName() {
@@ -50,5 +51,21 @@ public class Lutemon {
 
     public int getMaxHealth() {
         return maxHealth;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public static int getNumberOfCreatedLutemons() {
+        return idCounter;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 }
