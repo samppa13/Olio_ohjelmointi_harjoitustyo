@@ -68,4 +68,13 @@ public class Lutemon {
     public void setHealth(int health) {
         this.health = health;
     }
+
+    public void defense(Lutemon lutemon) {
+        int hit = lutemon.attack() - defense;
+        setHealth(health - hit);
+    }
+
+    public int attack() {
+        return attack + experience;
+    }
 }

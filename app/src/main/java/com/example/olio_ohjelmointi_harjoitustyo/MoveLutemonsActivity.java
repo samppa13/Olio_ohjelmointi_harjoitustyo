@@ -30,24 +30,10 @@ public class MoveLutemonsActivity extends AppCompatActivity {
         moveLutemons();
     }
 
-    public ArrayList<Lutemon> getAllLutemons() {
-        ArrayList<Lutemon> allLutemons = new ArrayList<>();
-        allLutemons.addAll(Home.getInstance().getLutemons());
-        allLutemons.addAll(BattleField.getInstance().getLutemons());
-        allLutemons.addAll(TrainingArea.getInstance().getLutemons());
-        Collections.sort(allLutemons, new Comparator<Lutemon>() {
-            @Override
-            public int compare(Lutemon lutemon, Lutemon t1) {
-                return String.valueOf(lutemon.getId()).compareTo(String.valueOf(t1.getId()));
-            }
-        });
-        return allLutemons;
-    }
-
     public void makeCheckBoxes() {
         checkBoxLinearLayout.removeAllViews();
         CheckBox checkBox;
-        for (Lutemon lutemon: getAllLutemons()) {
+        for (Lutemon lutemon: Storage.getAllLutemons()) {
             checkBox = new CheckBox(this);
             checkBox.setText(lutemon.getName());
             checkBox.setId(lutemon.getId());
