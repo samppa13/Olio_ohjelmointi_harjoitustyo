@@ -2,6 +2,7 @@ package com.example.olio_ohjelmointi_harjoitustyo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
     private Button listLutemonsActivityButton;
     private Button moveLutemonsActivityButton;
     private Button battleFieldActivityButton;
+    private Button saveLutemonsButton;
+    private Button loadLutemonsButton;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +26,15 @@ public class MainActivity extends AppCompatActivity {
         listLutemonsActivityButton = findViewById(R.id.listLutemonsActivityButton);
         moveLutemonsActivityButton = findViewById(R.id.moveLutemonsActivityButton);
         battleFieldActivityButton = findViewById(R.id.battleFieldActivityButton);
+        saveLutemonsButton = findViewById(R.id.saveLutemonsButton);
+        loadLutemonsButton = findViewById(R.id.loadLutemonsButton);
         switchToAddLutemon();
         switchToListLutemons();
         switchToMoveLutemons();
         switchToBattleField();
+        context = MainActivity.this;
+        saveLutemons();
+        loadLutemons();
     }
 
     public void switchToAddLutemon() {
@@ -64,6 +73,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent showBattleFieldActivity = new Intent(getApplicationContext(), BattleFieldActivity.class);
                 startActivity(showBattleFieldActivity);
+            }
+        });
+    }
+
+    public void saveLutemons() {
+        saveLutemonsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SaveAndLoadLutemons.getInstance().saveLutemons(context);
+            }
+        });
+    }
+
+    public void loadLutemons() {
+        loadLutemonsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SaveAndLoadLutemons.getInstance().loadLutemons(context);
             }
         });
     }
