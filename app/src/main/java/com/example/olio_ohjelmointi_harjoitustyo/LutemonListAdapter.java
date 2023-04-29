@@ -26,6 +26,7 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull LutemonViewHolder holder, int position) {
+        holder.imageView.setImageResource(lutemons.get(position).getImage());
         holder.nameTextView.setText(lutemons.get(position).getName() + " (" + lutemons.get(position).getColor() + ")");
         holder.attackTextView.setText("Hyökkäys: " + lutemons.get(position).getAttack());
         holder.defenceTextView.setText("Puolustus: " + lutemons.get(position).getDefense());

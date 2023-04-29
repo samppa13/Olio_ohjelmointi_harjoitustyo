@@ -59,6 +59,10 @@ public class Lutemon implements Serializable {
         return id;
     }
 
+    public int getImage() {
+        return image;
+    }
+
     public static int getNumberOfCreatedLutemons() {
         return idCounter;
     }
