@@ -2,7 +2,7 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="175dp"
+    android:layout_height="240dp"
     android:layout_marginTop="5dp"
     android:background="#3AC707"
     android:orientation="horizontal">
@@ -57,8 +57,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
             android:text="Kokemus"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/winsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Voitot"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/lossesTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Tappiot"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/trainingDaysTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Treenipäivät"
             android:textColor="@color/black" />
 
     </LinearLayout>

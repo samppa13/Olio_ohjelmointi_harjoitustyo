@@ -44,8 +44,10 @@ public class BattleField extends Storage {
             else {
                 summaryOfBattle += "\n" + defender.getColor() + "(" + defender.getName() + ") was defeated in battle.";
                 attacker.setExperience(attacker.getExperience() + 1);
+                attacker.setWins(attacker.getWins() + 1);
                 defender.setExperience(0);
                 defender.setHealth(defender.getMaxHealth());
+                defender.setLosses(defender.getLosses() + 1);
                 Home.getInstance().addLutemon(defender);
                 removeLutemon(defender);
                 summaryOfBattle += "\nThe battle is over.";

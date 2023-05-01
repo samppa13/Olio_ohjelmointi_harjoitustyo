@@ -19,6 +19,7 @@ public class TrainingArea extends Storage {
     public void train() {
         for (Lutemon lutemon: lutemons) {
             lutemon.setExperience(lutemon.getExperience() + 1);
+            lutemon.setTrainingDays(lutemon.getTrainingDays() + 1);
         }
     }
 }

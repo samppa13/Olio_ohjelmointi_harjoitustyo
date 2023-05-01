@@ -32,6 +32,9 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
         holder.defenceTextView.setText("Puolustus: " + lutemons.get(position).getDefense());
         holder.healthTextView.setText("Elämä: " + lutemons.get(position).getHealth() + "/" + lutemons.get(position).getMaxHealth());
         holder.experienceTextView.setText("Kokemus: " + lutemons.get(position).getExperience());
+        holder.winsTextView.setText("Voitot: " + lutemons.get(position).getWins());
+        holder.lossesTextView.setText("Tappiot: " + lutemons.get(position).getLosses());
+        holder.trainingDaysTextView.setText("Treenipäivät: " + lutemons.get(position).getTrainingDays());
     }
 
     @Override

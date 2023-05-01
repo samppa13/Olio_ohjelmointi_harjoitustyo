@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private Button listLutemonsActivityButton;
     private Button moveLutemonsActivityButton;
     private Button battleFieldActivityButton;
+    private Button statisticsActivityButton;
     private Button saveLutemonsButton;
     private Button loadLutemonsButton;
     private Context context;
@@ -26,12 +27,14 @@ public class MainActivity extends AppCompatActivity {
         listLutemonsActivityButton = findViewById(R.id.listLutemonsActivityButton);
         moveLutemonsActivityButton = findViewById(R.id.moveLutemonsActivityButton);
         battleFieldActivityButton = findViewById(R.id.battleFieldActivityButton);
+        statisticsActivityButton = findViewById(R.id.statisticsActivityButton);
         saveLutemonsButton = findViewById(R.id.saveLutemonsButton);
         loadLutemonsButton = findViewById(R.id.loadLutemonsButton);
         switchToAddLutemon();
         switchToListLutemons();
         switchToMoveLutemons();
         switchToBattleField();
+        switchToStatistics();
         context = MainActivity.this;
         saveLutemons();
         loadLutemons();
@@ -73,6 +76,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent showBattleFieldActivity = new Intent(getApplicationContext(), BattleFieldActivity.class);
                 startActivity(showBattleFieldActivity);
+            }
+        });
+    }
+
+    public void switchToStatistics() {
+        statisticsActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent showStatisticsActivity = new Intent(getApplicationContext(), StatisticsActivity.class);
+                startActivity(showStatisticsActivity);
             }
         });
     }
