@@ -106,7 +106,7 @@ public class Lutemon implements Serializable {
     }
 
     public void defense(Lutemon lutemon) {
-        int hit = lutemon.attack() - defense;
+        int hit = (int) ((lutemon.attack() + Math.random() * 3) - defense);
         setHealth(health - hit);
     }
 
