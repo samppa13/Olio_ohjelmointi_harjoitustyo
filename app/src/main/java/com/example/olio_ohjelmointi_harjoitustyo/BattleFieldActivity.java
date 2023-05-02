@@ -33,7 +33,7 @@ public class BattleFieldActivity extends AppCompatActivity {
         CheckBox checkBox;
         for (Lutemon lutemon: BattleField.getInstance().getLutemons()) {
             checkBox = new CheckBox(this);
-            checkBox.setText(lutemon.getName());
+            checkBox.setText(lutemon.getColor() + " (" + lutemon.getName() + ")");
             checkBox.setId(lutemon.getId());
             checkBoxesLinearLayout.addView(checkBox);
         }

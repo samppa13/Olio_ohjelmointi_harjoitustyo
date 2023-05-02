@@ -17,19 +17,19 @@ public class Lutemon implements Serializable {
     protected int trainingDays;
     private static int idCounter = 0;
 
-    public Lutemon(String name, String color, int attack, int defense, int experience, int health, int maxHealth, int id, int image) {
+    public Lutemon(String name, String color, int attack, int defense, int health, int maxHealth, int id, int image) {
         this.name = name;
         this.color = color;
         this.attack = attack;
         this.defense = defense;
-        this.experience = experience;
+        this.experience = 0;
         this.health = health;
         this.maxHealth = maxHealth;
         this.id = id;
         this.image = image;
-        wins = 0;
-        losses = 0;
-        trainingDays = 0;
+        this.wins = 0;
+        this.losses = 0;
+        this.trainingDays = 0;
         idCounter++;
     }
 
@@ -105,9 +105,13 @@ public class Lutemon implements Serializable {
         this.trainingDays = trainingDays;
     }
 
+    public static void setNumberOfCreatedLutemons(int id) {
+        idCounter = id;
+    }
+
     public void defense(Lutemon lutemon) {
         int hit = (int) ((lutemon.attack() + Math.random() * 3) - defense);
-        setHealth(health - hit);
+        setHealth(getHealth() - hit);
     }
 
     public int attack() {

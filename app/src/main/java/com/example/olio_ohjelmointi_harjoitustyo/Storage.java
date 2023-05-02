@@ -21,6 +21,10 @@ public abstract class Storage {
         lutemons.remove(lutemon);
     }
 
+    public void removeLutemons() {
+        lutemons.removeAll(lutemons);
+    }
+
     public static ArrayList<Lutemon> getAllLutemons() {
         ArrayList<Lutemon> allLutemons = new ArrayList<>();
         allLutemons.addAll(Home.getInstance().getLutemons());

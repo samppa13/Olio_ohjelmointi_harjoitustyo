@@ -33,7 +33,7 @@ public class StatisticsActivity extends AppCompatActivity {
         column3d.title().padding(0d, 0d, 15d, 0d);
         ArrayList<DataEntry> seriesData = new ArrayList<>();
         for (Lutemon lutemon: Storage.getAllLutemons()) {
-            seriesData.add(new Statistics(lutemon.getName(), lutemon.getWins(), lutemon.getLosses(), lutemon.getTrainingDays()));
+            seriesData.add(new Statistics(lutemon.getColor() + " (" + lutemon.getName() + ")", lutemon.getWins(), lutemon.getLosses(), lutemon.getTrainingDays()));
         }
         Set set = Set.instantiate();
         set.data(seriesData);

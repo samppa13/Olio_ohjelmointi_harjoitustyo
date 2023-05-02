@@ -19,19 +19,10 @@ public class BattleField extends Storage {
         Lutemon defender = twoLutemons.get(1);
         String summaryOfBattle = "";
         while (true) {
-            summaryOfBattle += "Attacker: " + attacker.getColor() + "(" + attacker.getName() + ") "
-                    + "att: " + attacker.getAttack() + " def: " + attacker.getDefense()
-                    + " exp: " + attacker.getExperience()
-                    + " health: " + attacker.getHealth() + "/" + attacker.getMaxHealth();
-            summaryOfBattle += "\nDefender: " + defender.getColor() + "(" + defender.getName() + ") "
-                    + "att: " + defender.getAttack() + " def: " + defender.getDefense()
-                    + " exp: " + defender.getExperience()
-                    + " health: " + defender.getHealth() + "/" + defender.getMaxHealth();
-            summaryOfBattle += "\n" + attacker.getColor() + "(" + attacker.getName() + ") attacks "
-                    + defender.getColor() + "(" + defender.getName() + ")";
+            summaryOfBattle += getLutemonsData(attacker, defender);
             defender.defense(attacker);
             if (defender.getHealth() > 0) {
-                summaryOfBattle += "\n" + defender.getColor() + "(" + defender.getName() + ") manage escape death.\n";
+                summaryOfBattle += "\n" + defender.getColor() + "(" + defender.getName() + ") manage escape death.\n\n";
                 if (twoLutemons.lastIndexOf(attacker) == 0 && twoLutemons.lastIndexOf(defender) == 1) {
                     attacker = twoLutemons.get(1);
                     defender = twoLutemons.get(0);
@@ -54,6 +45,20 @@ public class BattleField extends Storage {
                 break;
             }
         }
+        return summaryOfBattle;
+    }
+
+    public String getLutemonsData(Lutemon attacker, Lutemon defender) {
+        String summaryOfBattle = "Attacker: " + attacker.getColor() + "(" + attacker.getName() + ") "
+                + "att: " + attacker.getAttack() + " def: " + attacker.getDefense()
+                + " exp: " + attacker.getExperience()
+                + " health: " + attacker.getHealth() + "/" + attacker.getMaxHealth();
+        summaryOfBattle += "\nDefender: " + defender.getColor() + "(" + defender.getName() + ") "
+                + "att: " + defender.getAttack() + " def: " + defender.getDefense()
+                + " exp: " + defender.getExperience()
+                + " health: " + defender.getHealth() + "/" + defender.getMaxHealth();
+        summaryOfBattle += "\n" + attacker.getColor() + "(" + attacker.getName() + ") attacks "
+                + defender.getColor() + "(" + defender.getName() + ")";
         return summaryOfBattle;
     }
 }

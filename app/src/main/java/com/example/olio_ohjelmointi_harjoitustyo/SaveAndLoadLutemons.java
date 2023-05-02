@@ -27,7 +27,11 @@ public class SaveAndLoadLutemons {
         try {
             FileOutputStream fileOutputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            objectOutputStream.writeObject(Storage.getAllLutemons());
+            ArrayList<Lutemon> lutemons = Storage.getAllLutemons();
+            for (Lutemon lutemon: lutemons) {
+                lutemon.setHealth(lutemon.getMaxHealth());
+            }
+            objectOutputStream.writeObject(lutemons);
             objectOutputStream.close();
             fileOutputStream.close();
         } catch (FileNotFoundException e) {
@@ -42,7 +46,10 @@ public class SaveAndLoadLutemons {
         try {
             FileInputStream fileInputStream = context.openFileInput(fileName);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            Home.getInstance().setLutemons((ArrayList<Lutemon>) objectInputStream.readObject());
+            BattleField.getInstance().removeLutemons();
+            ArrayList<Lutemon> lutemons = (ArrayList<Lutemon>) objectInputStream.readObject();
+            Lutemon.setNumberOfCreatedLutemons(lutemons.size());
+            Home.getInstance().setLutemons(lutemons);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {

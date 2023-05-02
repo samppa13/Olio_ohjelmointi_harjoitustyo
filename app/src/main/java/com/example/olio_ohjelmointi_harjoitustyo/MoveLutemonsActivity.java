@@ -35,7 +35,7 @@ public class MoveLutemonsActivity extends AppCompatActivity {
         CheckBox checkBox;
         for (Lutemon lutemon: Storage.getAllLutemons()) {
             checkBox = new CheckBox(this);
-            checkBox.setText(lutemon.getName());
+            checkBox.setText(lutemon.getColor() + " (" + lutemon.getName() + ")");
             checkBox.setId(lutemon.getId());
             checkBoxLinearLayout.addView(checkBox);
         }

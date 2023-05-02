@@ -12,10 +12,6 @@ public class TrainingArea extends Storage {
         return trainingArea;
     }
 
-    public void removeLutemons() {
-        lutemons.removeAll(lutemons);
-    }
-
     public void train() {
         for (Lutemon lutemon: lutemons) {
             lutemon.setExperience(lutemon.getExperience() + 1);
